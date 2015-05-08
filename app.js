@@ -27,8 +27,8 @@ $(function(){
 
   // `Game.prototype.init` kicks off a new game with a board and two players
   Game.prototype.init = function() {
-    //this.board.reset()
-    //this.board.makeMove(this.player2, $('.cell').first())
+    this.board.reset()
+    this.board.makeMove(this.player2, $('.cell').first())
   };
 
   // A starter Player constructor.
@@ -55,6 +55,12 @@ $(function(){
     $cell.addClass(player.team.toLowerCase).html(player.team)
 
 
+  }
+
+
+  Board.prototype.checkWinner = function(){
+
+    // this checks if there is a winner and ends the game
   }
 
   // Start the game!
