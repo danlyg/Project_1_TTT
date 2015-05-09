@@ -33,20 +33,28 @@ $(function(){
 
   // `Game.prototype.init` kicks off a new game with a board and two players
   Game.prototype.init = function() {
-    var that = this // allows me to keep 'this' since in event handler, this gets overwritten with the target
+    var that = this // allows me to keep the current 'this' since in event handler, this gets overwritten with the target
     
 
-    $(this.board.$cells).click(function(event){
-      $target = $(event.target)
+   //statement that checks if there is a winner
 
-      if(that.board.isEmpty($target)){
-        that.board.makeMove(that.currentPlayer, $target)
-        var winningTeam = that.board.checkWinner();
-        if (winningTeam){
-          alert(winningTeam + 'wins!')
+    $(this.board.$cells).click(function(event){
+
+      var winningTeam = that.board.checkWinner();//statement that checks if there is a winner
+
+      if(!winningTeam){
+        $target = $(event.target)
+
+        if(that.board.isEmpty($target)){
+          that.board.makeMove(that.currentPlayer, $target)
+
+          winningTeam = that.board.checkWinner(); //this only checks if there is a winner
+
+          if (winningTeam){
+            alert(winningTeam + ' wins!')
+          }//else 
         }
       }
-
     })
 
     $button = $('#reset');
@@ -57,16 +65,10 @@ $(function(){
 
   // A starter Player constructor.
   function Player(team) {
-    //Is the player X or O?
     this.team = team
   };
 
   // A starter Board constructor.
-  
-
-
-
-
   function Board() {
     //Tracks the cells of the board instance
 
@@ -115,7 +117,7 @@ $(function(){
   }
 
   
-
+  //create a 'tie method'
 
 
 
