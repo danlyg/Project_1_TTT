@@ -1,7 +1,3 @@
-// OOP Tic Tac Toe boilerplate code
-
-// Execute this code only AFTER the document is ready
-// Hint: use jQuery's `$(document).ready`
 $(function(){
 
   function Game() {
@@ -17,16 +13,13 @@ $(function(){
     this.currentPlayer = this.player1
   }
 
-  // Remember: prototypes are shared functions between all game instances
+
   Game.prototype.nextPlayer = function() {
     //'this' refers to the Game
-    console.log(this.currentPlayer.team)
     if (this.currentPlayer === this.player1){
       this.currentPlayer = this.player2  //change team 'X' to team 'O'
-      console.log(this.currentPlayer.team, 'this should be O now')
     } else {
       this.currentPlayer = this.player1 //change team 'O' to team 'X'
-      console.log(this.currentPlayer.team, 'this should be X now')
     }
   };
 
@@ -36,12 +29,11 @@ $(function(){
     var that = this // allows me to keep the current 'this' since in event handler, this gets overwritten with the target
     
 
-   //statement that checks if there is a winner
 
     $(this.board.$cells).click(function(event){
 
       var winningTeam = that.board.checkWinner();//statement that checks if there is a winner
-
+      var tieGame;
       if(!winningTeam){
         $target = $(event.target)
 
@@ -49,10 +41,15 @@ $(function(){
           that.board.makeMove(that.currentPlayer, $target)
 
           winningTeam = that.board.checkWinner(); //this only checks if there is a winner
-
+          tieGame = that.board.isTie();
+         
+          console.log(tieGame, 'tieGame')
+          
           if (winningTeam){
             alert(winningTeam + ' wins!')
-          }//else 
+          } else if (tieGame){
+            alert('Tie Game')
+          }
         }
       }
     })
@@ -71,16 +68,12 @@ $(function(){
   // A starter Board constructor.
   function Board() {
     //Tracks the cells of the board instance
-
     this.$cells = $('.cell')
     this.currentPlayer = this.player1
-
-    //Store any other properties that board may have below, such as a reset option
   };
 
   Board.prototype.reset = function(){
     this.$cells.empty().removeClass('x').removeClass('o') //it is same with .html('')
-
   };
 
   Board.prototype.makeMove = function(player, $cell){
@@ -117,7 +110,36 @@ $(function(){
   }
 
   
-  //create a 'tie method'
+  Board.prototype.isTie = function(){
+    var that = this;
+    var counter = 0;
+    var notEmpty = false;
+    this.$cells.each(function(i, val){
+      if( that.isEmpty( $(val) ) ){
+        return false; //break out of loop since we found a empty
+      } else {
+          counter++; //counts up to 9
+      }
+    })
+    if(counter === 9){
+      return true; // there are empty spaces left, not a tie game
+    } else {
+        return false;
+    }
+
+
+
+      // if( !that.isEmpty( $(val) ) ){
+      //   count++;
+      //   console.log(count, 'current count')
+      //   if(count === 9){
+      //     console.log(count, ' this should be 9?')
+      //     return true;
+      //   }
+      // } else {
+      //     console.log('current count', count, " that cell was empty")
+      //   }
+  }
 
 
 
