@@ -9,12 +9,13 @@
   <!-- Require jQuery -->
   <script src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js'></script>
   <script type="text/javascript" src="app.js"></script>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <!-- HTML Body -->
-  <h1>Tic Tac Toe</h1>
-  <img src="http://www.cs.utah.edu/~gk/atwork/img/hevequip2.gif" alt="under construction"></img>
-  <!-- Tic Tac Toe Board here -->
+  <h1 class='mainheader'>xo</h1>
+  <h2 class='turn'>a duel has been declared</h2>
+
   <table>
     <tr>
       <td class="cell"></td>
@@ -33,9 +34,20 @@
     </tr>
   </table>
 
+  <div class='buttonAlign'><button id='reset'>next game</button></div>
 
-  <!-- Reset button -->
-  <button id='reset'> reset game </button> 
+<table>
+  <tr>
+    <td class='score'>Wins X</td>
+    <td class='score'>Ties</td>
+    <td class='score'>Wins O</td>
+  </tr>
+  <tr>
+    <td class='tally'>0</td>
+    <td class='tally'>0</td>
+    <td class='tally'>0</td>
+  </tr>
+</table>
 
 </body>
 </html>

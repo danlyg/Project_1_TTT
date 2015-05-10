@@ -15,7 +15,7 @@ $(function(){
 
 
   Game.prototype.nextPlayer = function() {
-    //'this' refers to the Game
+    //'this' refers to the game
     if (this.currentPlayer === this.player1){
       this.currentPlayer = this.player2  //change team 'X' to team 'O'
     } else {

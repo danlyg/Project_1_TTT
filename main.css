@@ -1,7 +1,67 @@
+table{
+  margin: 0 auto;
+}
+
 .cell{
 	background-color : red;
 	width: 100px;
 	height: 100px;
 	font-size: 50px;
 
+}
+
+.x {
+  background-color: palegreen;
+  text-align: center;
+  font-size: 100px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 180px;
+
+}
+
+.o {
+  background-color: salmon;
+  text-align: center;
+  font-size: 100px;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 180px;
+}
+
+
+
+h1 {
+  height: 100px;
+  margin: 0;
+  background: linear-gradient(rgba(255,150,100,1),rgba(255,100,111,1));
+  font-family: 'Open Sans', sans-serif;
+  font-size: 101px;
+  text-align: center;
+  color: white;
+}
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+  color: slateblue;
+  transform : scale(1,0.95);
+
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+.buttonAlign{
+  text-align: center;
+}
+
+#reset{
+  height: 50px;
+  width: 150px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  border-radius: 20px;
+  color: antiquewhite;
+  background-color: darkslategrey;
 }
