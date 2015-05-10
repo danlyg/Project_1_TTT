@@ -11,6 +11,9 @@ $(function(){
     this.board = new Board();
 
     this.currentPlayer = this.player1
+
+
+    this.score = new Score();
   }
 
 
@@ -46,8 +49,10 @@ $(function(){
           console.log(tieGame, 'tieGame')
           
           if (winningTeam){
+            that.score.updateTeamScore(winningTeam)
             alert(winningTeam + ' wins!')
           } else if (tieGame){
+            that.score.updateTieScore()
             alert('Tie Game')
           }
         }
@@ -60,16 +65,56 @@ $(function(){
     })
   };
 
+
+
+  function Score(){
+    this.scoreX = 0;
+    this.scoreO = 0;
+    this.ties = 0;
+  }
+
+  Score.prototype.updateTeamScore = function(winningTeam){
+    //update score of winning team
+    if(winningTeam === 'X'){
+      this.scoreX++;
+      $('.xScore').html(this.scoreX);
+    } else {
+      this.scoreO++;
+      $('.oScore').html(this.scoreO);
+    }
+
+  }
+  
+  Score.prototype.updateTieScore = function(){
+    this.ties++;
+
+    $('.tieScore').html(this.ties);
+
+
+  }
+
+
+
+
+
+
+
+
+
   // A starter Player constructor.
   function Player(team) {
     this.team = team
   };
 
+
+
+
+
   // A starter Board constructor.
   function Board() {
     //Tracks the cells of the board instance
-    this.$cells = $('.cell')
-    this.currentPlayer = this.player1
+    this.$cells = $('.cell');
+    this.currentPlayer = this.player1;
   };
 
   Board.prototype.reset = function(){
@@ -126,19 +171,6 @@ $(function(){
     } else {
         return false;
     }
-
-
-
-      // if( !that.isEmpty( $(val) ) ){
-      //   count++;
-      //   console.log(count, 'current count')
-      //   if(count === 9){
-      //     console.log(count, ' this should be 9?')
-      //     return true;
-      //   }
-      // } else {
-      //     console.log('current count', count, " that cell was empty")
-      //   }
   }
 
 

@@ -10,11 +10,30 @@
   <script src = 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js'></script>
   <script type="text/javascript" src="app.js"></script>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 </head>
 <body>
   <!-- HTML Body -->
   <h1 class='mainheader'>xo</h1>
   <h2 class='turn'>a duel has been declared</h2>
+
+<table class='scoreboard'>
+  <tr>
+    <td class='score'></td>
+    <td class='scoretitle'>scoreboard</td>
+    <td class='score'></td>
+  </tr> 
+  <tr>
+    <td class='scorenames'>x</td>
+    <td class='scorenames'>ties</td>
+    <td class='scorenames'>o</td>
+  </tr>
+  <tr>
+    <td class='xScore'>0</td>
+    <td class='tieScore'>0</td>
+    <td class='oScore'>0</td>
+  </tr>
+</table>
 
   <table>
     <tr>
@@ -34,20 +53,10 @@
     </tr>
   </table>
 
-  <div class='buttonAlign'><button id='reset'>next game</button></div>
+<div class='buttonAlign'><button id='reset'>next game</button></div>
 
-<table>
-  <tr>
-    <td class='score'>Wins X</td>
-    <td class='score'>Ties</td>
-    <td class='score'>Wins O</td>
-  </tr>
-  <tr>
-    <td class='tally'>0</td>
-    <td class='tally'>0</td>
-    <td class='tally'>0</td>
-  </tr>
-</table>
-
+<!-- <div class='overlay'> -->
+<!--   <p class='overlayText'>x wins</p>
+</div> -->
 </body>
 </html>
