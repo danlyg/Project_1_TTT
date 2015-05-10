@@ -97,6 +97,13 @@ html, body {
   text-align: center;
 }
 
+.overlayGif{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 60px;
+  color: whitesmoke;
+  text-align: center;
+}
+
 .buttonAlign{
   margin: 15px auto;
   text-align: center;
@@ -111,4 +118,5 @@ html, body {
   border-radius: 20px;
   color: antiquewhite;
   background-color: darkslategrey;
+  outline: none;
 }

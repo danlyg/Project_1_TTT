@@ -20,17 +20,19 @@ $(function(){
   Game.prototype.nextPlayer = function() {
     //'this' refers to the game
     if (this.currentPlayer === this.player1){
-      this.currentPlayer = this.player2  //change team 'X' to team 'O'
+      this.currentPlayer = this.player2
+      $('.turn').html(this.currentPlayer.team + "'s turn")  //change team 'X' to team 'O'
     } else {
-      this.currentPlayer = this.player1 //change team 'O' to team 'X'
+      this.currentPlayer = this.player1
+      $('.turn').html(this.currentPlayer.team + "'s turn")  //change team 'O' to team 'X'
     }
   };
+
 
 
   // `Game.prototype.init` kicks off a new game with a board and two players
   Game.prototype.init = function() {
     var that = this // allows me to keep the current 'this' since in event handler, this gets overwritten with the target
-    
 
 
     $(this.board.$cells).click(function(event){
@@ -46,14 +48,11 @@ $(function(){
           winningTeam = that.board.checkWinner(); //this only checks if there is a winner
           tieGame = that.board.isTie();
          
-          console.log(tieGame, 'tieGame')
           
           if (winningTeam){
             that.score.updateTeamScore(winningTeam)
-            alert(winningTeam + ' wins!')
           } else if (tieGame){
             that.score.updateTieScore()
-            alert('Tie Game')
           }
         }
       }
@@ -74,13 +73,15 @@ $(function(){
   }
 
   Score.prototype.updateTeamScore = function(winningTeam){
-    //update score of winning team
-    if(winningTeam === 'X'){
+    //update score of winning team    
+    if(winningTeam === game.player1.team){
       this.scoreX++;
       $('.xScore').html(this.scoreX);
+      $('body').append("<div class='overlay'><p class='overlayText'>x wins</p></div>")
     } else {
       this.scoreO++;
       $('.oScore').html(this.scoreO);
+      $('body').append("<div class='overlay'><p class='overlayText'>o wins</p></div>")
     }
 
   }
@@ -89,6 +90,7 @@ $(function(){
     this.ties++;
 
     $('.tieScore').html(this.ties);
+    $('body').append("<div class='overlay'><p class='overlayGif'>tie game<br><img src='http://i.giphy.com/lPehtI6SzyTu0.gif' class ='catGif'></p></div>")
 
 
   }
@@ -119,6 +121,7 @@ $(function(){
 
   Board.prototype.reset = function(){
     this.$cells.empty().removeClass('x').removeClass('o') //it is same with .html('')
+    $('.overlay').remove();
   };
 
   Board.prototype.makeMove = function(player, $cell){
