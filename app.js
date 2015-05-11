@@ -12,7 +12,6 @@ $(function(){
 
     this.currentPlayer = this.player1
 
-
     this.score = new Score();
   }
 
@@ -28,12 +27,9 @@ $(function(){
     }
   };
 
-
-
   // `Game.prototype.init` kicks off a new game with a board and two players
   Game.prototype.init = function() {
     var that = this // allows me to keep the current 'this' since in event handler, this gets overwritten with the target
-
 
     $(this.board.$cells).click(function(event){
 
@@ -95,22 +91,10 @@ $(function(){
 
   }
 
-
-
-
-
-
-
-
-
   // A starter Player constructor.
   function Player(team) {
     this.team = team
   };
-
-
-
-
 
   // A starter Board constructor.
   function Board() {
@@ -132,7 +116,6 @@ $(function(){
   Board.prototype.isEmpty = function($cell) {
    return ($cell.html() === '') // will return true or false
   };
-
 
   Board.prototype.checkWinner = function(){
     var winningcombs = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
@@ -157,7 +140,6 @@ $(function(){
     }
   }
 
-  
   Board.prototype.isTie = function(){
     var that = this;
     var counter = 0;
@@ -175,9 +157,6 @@ $(function(){
         return false;
     }
   }
-
-
-
 
   // Start the game!
   var game = new Game();

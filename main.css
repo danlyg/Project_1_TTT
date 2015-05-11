@@ -11,8 +11,13 @@ table{
 	height: 150px;
   border-radius: 10px;
 	font-size: 50px;
-  overflow: hidden;
+  overflow: hidden;  
+  transition: transform 0.8s;
 
+}
+.cell:hover {
+  background-color: #FFCCCC;
+  transform:rotate(180deg);
 }
 
 .x {
@@ -21,6 +26,10 @@ table{
   font-family: 'Varela Round', sans-serif;
   color: steelblue;
 }
+.x:hover {
+  background-color: whitesmoke;
+}
+
 
 .o {
   text-align: center;
@@ -28,7 +37,9 @@ table{
   font-family: 'Varela Round', sans-serif;
   color: lightcoral;
 }
-
+.o:hover {
+  background-color: whitesmoke;
+}
 
 
 
@@ -78,7 +89,6 @@ html, body {
 
 }
 
-
 .overlay{
   position: absolute;
   top: 277px;
@@ -102,6 +112,10 @@ html, body {
   font-size: 60px;
   color: whitesmoke;
   text-align: center;
+}
+
+img{
+    border-radius: 10px;
 }
 
 .buttonAlign{
