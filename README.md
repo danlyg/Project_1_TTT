@@ -1,24 +1,29 @@
-#WDI: First Project
-
-###Workflow & Submission
-Full project requirements and instructions are [here](https://github.com/sf-wdi-18/notes/blob/master/projects/project_1.md)! **Read that entire document before writing a line of code.**
-This file is where you will document your project.  
-
-* Fork this repository.
-* Clone this repo, the `Project_1_TTT` repo, from *your* gitHub account onto your computer.
-* Follow the project instructions [here](https://github.com/sf-wdi-18/notes/blob/master/projects/project_1.md).
-* Make your changes in your local `Project_1_TTT` repo.
-* Use either HTML or, even better, [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to format this file as you document your project.
-* `git add` and `git commit` your changes as you go.  Remember to say what you did in your commit messages!
-* `git push` to update the repo on your gitHub account.
-* Delete this section, the `Workflow & Submission` section, of this file -- you don't need it in your documentation!
-
+#WDI Project 1
+##TicTacToe - OOP
 
 ### Technologies Used
-*What technologies did you use while developing this project?*
+Over the last two weeks, my cohorts and I were bombarded with tons of information on various tools, logic, methods, and patterns.
+
+I mainly worked in **Javascript**, emphasizing the use of **jQuery**.
+
+This project focuses on the principles of **object-oriented programming** using all the **front-end web tools** we have developed. 
+
+---
 
 ###Existing features
-*What features does your new tic-tac-toe app have?*
+Like the standard game of tic-tac-toe that can be done on paper. The game can:
+- switch players
+- display a winner or tie
+  - keep track of scores for both players or ties
+- reset the board
+- some css hover transforms
+
+---
 
 ###Planned features
-*What changes would you make to your project if you continued with it in the future?*
+- Create a expand effect for my `overlays`
+- Undo
+  - Undo 1 move
+  - Undo all moves of that game instance
+- Make the cell flip into the z-axis (3d-like)
+- Allow for user to input a `team` name 
